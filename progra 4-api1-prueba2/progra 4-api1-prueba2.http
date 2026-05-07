@@ -1,0 +1,6 @@
+@progra_4_api1_prueba2_HostAddress = http://localhost:5270
+
+GET {{progra_4_api1_prueba2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
