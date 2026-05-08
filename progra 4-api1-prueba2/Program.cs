@@ -33,15 +33,6 @@ app.MapControllers();
 
 
 
-// Puedes exponer rutas separadas para readiness/liveness si lo prefieres
-app.MapHealthChecks("/health/ready", new HealthCheckOptions
-{
-    Predicate = entry => true // filtra checks que consideres para readiness
-});
 
-app.MapHealthChecks("/health/live", new HealthCheckOptions
-{
-    Predicate = entry => false // liveness mínima; devuelve 200 si el host corre
-});
 
 app.Run();
