@@ -15,10 +15,7 @@ builder.Services.AddSwaggerGen();
 // Servicios mínimos
 builder.Services.AddControllers();
 
-// Registra health checks (añade checks específicos según necesites, p. ej. BD, Redis)
-builder.Services.AddHealthChecks()
-    // ejemplo: .AddCheck("sample", () => HealthCheckResult.Healthy("ok"));
-    ;
+
 
 var app = builder.Build();
 
