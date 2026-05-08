@@ -32,26 +32,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-app.MapHealthChecks("/health", new HealthCheckOptions
-{
-    ResponseWriter = async (context, report) =>
-    {
-        context.Response.ContentType = "application/json; charset=utf-8";
-        var result = new
-        {
-            status = report.Status.ToString(),
-            totalDuration = report.TotalDuration,
-            checks = report.Entries.Select(e => new
-            {
-                name = e.Key,
-                status = e.Value.Status.ToString(),
-                description = e.Value.Description,
-                duration = e.Value.Duration
-            })
-        };
-        await context.Response.WriteAsync(JsonSerializer.Serialize(result));
-    }
-});
 
 // Puedes exponer rutas separadas para readiness/liveness si lo prefieres
 app.MapHealthChecks("/health/ready", new HealthCheckOptions
